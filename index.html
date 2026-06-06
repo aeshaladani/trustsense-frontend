@@ -756,7 +756,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 <div class="toast" id="toast"></div>
 
 <script>
-const API = 'http://localhost:8000';
+const API = 'https://trustsense-api.onrender.com';
 let currentSessionId = null;
 let scoreChart = null;
 let wsConn = null;
@@ -1178,7 +1178,7 @@ function pushChartPoint(score) {
 // ── WebSocket ─────────────────────────────────────────────────────────────────
 function startWebSocket() {
   if (!currentSessionId) return;
-  wsConn = new WebSocket(`ws://localhost:8000/ws/session/${currentSessionId}`);
+  wsConn = new WebSocket(`ws://trustsense-api.onrender.com/ws/session/${currentSessionId}`);
   wsConn.onmessage = e => {
     const d = JSON.parse(e.data);
     if (d.error) return;
